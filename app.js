@@ -127,7 +127,13 @@
    * @param {!Object} res Cloud Function response context.
    */
   exports.scrapeConjugations = (req, res) => {
-    const queryUrl = encodeURI(PEALIM_BASE_URL + SEARCH_QUERY_SUFFIX + req.query)
+    if (req.body.query === undefined) {
+        // This is an error case, as "query" is required
+        res.status(400).send('No query defined!');
+        return;
+    }
+
+    const queryUrl = encodeURI(PEALIM_BASE_URL + SEARCH_QUERY_SUFFIX + req.body.query)
     request(queryUrl, function (error, response, body) {
         if (error) {
             res.status(400).send(('error:', error)); // Print the error if one occurred

@@ -1,6 +1,6 @@
 const app = require("./app.js")
 
-var dummyResponse = {
+var testResponse = {
     status: function (code) {
         return {
             send: function (payload) {
@@ -10,4 +10,8 @@ var dummyResponse = {
     }
 }
 
-app.scrapeConjugations({query: "ללכת"}, dummyResponse)
+var testRequest = {
+    body: {query: "ללכת"}
+}
+
+app.scrapeConjugations(testRequest, testResponse)
