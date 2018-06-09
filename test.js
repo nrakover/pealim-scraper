@@ -10,4 +10,4 @@ var dummyResponse = {
     }
 }
 
-app.getConjugations({query: "ללכת"}, dummyResponse)
+app.scrapeConjugations({query: "ללכת"}, dummyResponse)
