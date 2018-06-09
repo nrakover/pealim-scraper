@@ -5,7 +5,7 @@
     "cheerio": "1.0.0-rc.2",
     "request": "2.87.0"
   },
-  "main": "app",
+  "main": "./app.js",
   "scripts": {
     "test": "node test.js"
   }
